@@ -1,0 +1,55 @@
+<html>
+<head>
+<style>
+form {
+  font: 1em sans-serif;
+  max-width: 320px;
+}
+p > label {
+  display: block;
+}
+input[type=text],
+input[type=password],
+fieldset {
+  width : 100%;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+<form action="/set" method="get">
+<p>
+<fieldset>
+    <legend>Wi-Fi settings <abbr title="This field is mandatory">*</abbr></legend>
+    <label for="ssid">SSID:</label><input type="text" name="ssid" required><br>
+    <label for="pass">WPA/PSK key:</label><input type="password" name="pass" required>
+</fieldset>
+</p>
+<p>
+<fieldset>
+    <legend>Protocols</legend>
+  <input type="checkbox" name="bt_state" value="1" checked><label for="bt_state">Enable Bluetooth Mesh</label><br>
+  <input type="checkbox" name="mqtt_state" value="1" checked><label for="bt_state">Enable MQTT</label>
+  <label for="broker">MQTT Broker:</label><input type="text" name="broker">
+</fieldset>
+</p>
+<p>
+<fieldset>
+    <legend>Channel descriptions</legend>
+  <label for="topic1">Topic prefix 1</label><input type="text" name="topic1"><br>
+  <label for="ch2">Channel 2</label><input type="text" name="ch2"><br>
+  <label for="ch3">Channel 3</label><input type="text" name="ch3"><br>
+  <label for="ch4">Channel 4</label><input type="text" name="ch4"><br>
+  <label for="ch5">Channel 5</label><input type="text" name="ch5"><br>
+  <label for="ch6">Channel 6</label><input type="text" name="ch6"><br>
+  <label for="ch7">Channel 7</label><input type="text" name="ch7"><br>
+  <label for="ch8">Channel 8</label><input type="text" name="ch8"><br>
+  <label for="ch9">Channel 9</label><input type="text" name="ch9"><br>
+  <label for="ch10">Channel 10</label><input type="text" name="ch10">
+</fieldset>
+</p>
+<p align="center"><input type="submit" value="Submit"></p>
+</form> 
+</body>
+</html>
