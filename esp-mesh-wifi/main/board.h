@@ -20,7 +20,7 @@
 #include "mesh_kernel.h"
 #include "esp_ble_mesh_defs.h"
 
-#define LED_PIN 		GPIO_NUM_16
+#define LED_PIN 		GPIO_NUM_2
 #define BUTTON_PIN 		GPIO_NUM_0
 #define ACTIVE_LEVEL 	0
 #define ON_LEVEL		ACTIVE_LEVEL

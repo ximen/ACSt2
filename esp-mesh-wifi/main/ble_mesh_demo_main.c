@@ -35,12 +35,12 @@ void app_main(void)
 {
     esp_err_t err;
     static httpd_handle_t server = NULL;
-    wifi_mode_t wifi_mode = WIFI_MODE_AP;
+    /*wifi_mode_t wifi_mode = WIFI_MODE_AP;
     char* wifi_ssid = "";
     char* wifi_pass = "";
     uint ssid_len;
     uint pass_len;
-    bool bt_enabled = false;
+    bool bt_enabled = false;*/
 
     ESP_LOGI(TAG, "Initializing...");
 
@@ -49,6 +49,8 @@ void app_main(void)
         ESP_LOGE(TAG, "board_init failed (err %d)", err);
         return;
     }
+
+    gpio_set_level(LED_PIN, 1);
 
     get_config();
 
@@ -73,6 +75,8 @@ void app_main(void)
     if (config.mqtt_state) {
     	mqtt_init();
     }
+
+    gpio_set_level(LED_PIN, 0);
 
 }
 

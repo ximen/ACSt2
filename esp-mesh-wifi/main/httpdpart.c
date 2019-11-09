@@ -186,6 +186,7 @@ static esp_err_t config_set_handler(httpd_req_t *req){
 
 	const char* resp_str = (const char*) req->user_ctx;
 	httpd_resp_send(req, resp_str, strlen(resp_str));
+	esp_restart();
 	return ESP_OK;
 }
 
@@ -203,7 +204,7 @@ static const httpd_uri_t set_uri = {
     .handler   = config_set_handler,
     /* Let's pass response string in user
      * context to demonstrate it's usage */
-	.user_ctx  = "Hello",
+	.user_ctx  = "",
 };
 
 void stop_webserver(httpd_handle_t server){
