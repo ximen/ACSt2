@@ -25,7 +25,7 @@
 #define ACTIVE_LEVEL 	0
 #define ON_LEVEL		ACTIVE_LEVEL
 #define OFF_LEVEL		!ACTIVE_LEVEL
-#define OUTPUT_NUM 		2		// Number of output ports on the board
+#define OUTPUT_NUM 		10		// Number of output ports on the board
 #define CID_ESP     	0x02E5
 #define CID_NVAL    	0xFFFF
 #define PROVISION_LED_INTERVAL 2000

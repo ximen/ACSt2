@@ -27,16 +27,16 @@ extern x_config_t config;
 struct k_delayed_work prov_timer;
 
 gpio_num_t outputs[OUTPUT_NUM] = {
-		//GPIO_NUM_12,
+		GPIO_NUM_12,
 		GPIO_NUM_13,
 		GPIO_NUM_14,
-		//GPIO_NUM_15
-		//GPIO_NUM_16,
-		//GPIO_NUM_17,
-		//GPIO_NUM_18,
-		//GPIO_NUM_19,
-		//GPIO_NUM_21,
-		//GPIO_NUM_22
+		GPIO_NUM_15,
+		GPIO_NUM_16,
+		GPIO_NUM_17,
+		GPIO_NUM_18,
+		GPIO_NUM_19,
+		GPIO_NUM_21,
+		GPIO_NUM_22
 };
 
 void timer_stop(struct k_work *work){

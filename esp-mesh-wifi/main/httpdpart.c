@@ -30,14 +30,14 @@ const char* part5 = "><label for='bt_state'>Enable MQTT</label><br>"
 			"<label for='mqtt_broker'>MQTT Broker:</label><input type='text' name='mqtt_broker' value='";
 const char* part6 = "'></fieldset></p><p><fieldset><legend>Channel topics</legend><label for='topic1'>Topic prefix 1</label><input type='text' name='topic1' value='";
 const char* part7 = "'><br><label for='topic2'>Topic prefix 2</label><input type='text' name='topic2' value='";
-//const char* part8 = "'><br><label for='topic3'>Topic prefix 3</label><input type='text' name='topic3' value='";
-//const char* part9 = "'><br><label for='topic4'>Topic prefix 4</label><input type='text' name='topic4' value='";
-//const char* part10 = "'><br><label for='topic5'>Topic prefix 5</label><input type='text' name='topic5' value='";
-//const char* part11 = "'><br><label for='topic6'>Topic prefix 6</label><input type='text' name='topic6' value='";
-//const char* part12 = "'><br><label for='topic7'>Topic prefix 7</label><input type='text' name='topic7' value='";
-//const char* part13 = "'><br><label for='topic8'>Topic prefix 8</label><input type='text' name='topic8' value='";
-//const char* part14 = "'><br><label for='topic9'>Topic prefix 9</label><input type='text' name='topic9' value='";
-//const char* part15 = "'><br><label for='topic10'>Topic prefix 10</label><input type='text' name='topic10' value='";
+const char* part8 = "'><br><label for='topic3'>Topic prefix 3</label><input type='text' name='topic3' value='";
+const char* part9 = "'><br><label for='topic4'>Topic prefix 4</label><input type='text' name='topic4' value='";
+const char* part10 = "'><br><label for='topic5'>Topic prefix 5</label><input type='text' name='topic5' value='";
+const char* part11 = "'><br><label for='topic6'>Topic prefix 6</label><input type='text' name='topic6' value='";
+const char* part12 = "'><br><label for='topic7'>Topic prefix 7</label><input type='text' name='topic7' value='";
+const char* part13 = "'><br><label for='topic8'>Topic prefix 8</label><input type='text' name='topic8' value='";
+const char* part14 = "'><br><label for='topic9'>Topic prefix 9</label><input type='text' name='topic9' value='";
+const char* part15 = "'><br><label for='topic10'>Topic prefix 10</label><input type='text' name='topic10' value='";
 const char* part16 = "'><br></fieldset></p><label for='mqtt_prefix'>MQTT prefix:</label><input type='text' name='mqtt_prefix' value='";
 const char* part17 = "'><br><p align='center'><input type='submit' value='Submit'></p></form></body></html>";
 
@@ -45,11 +45,11 @@ static esp_err_t config_get_handler(httpd_req_t *req){
 	char* resp_str;
 	resp_str = malloc(strlen(part1) + strlen(config.ssid) + strlen(part2) + strlen(config.pass) + strlen(part3) + 7 + strlen(part4) + 7 + strlen(part5) +
 			strlen(config.mqtt_broker) + strlen(part6) + strlen(config.mqtt_topics[0]) + strlen(part7) +
-//			strlen(config.mqtt_topics[1]) + strlen(part8) + strlen(config.mqtt_topics[2]) + strlen(part9) +
-//			strlen(config.mqtt_topics[3]) + strlen(part10) + strlen(config.mqtt_topics[4]) + strlen(part11) +
-//			strlen(config.mqtt_topics[5]) + strlen(part12) + strlen(config.mqtt_topics[6]) + strlen(part13) +
-//			strlen(config.mqtt_topics[7]) + strlen(part14) + strlen(config.mqtt_topics[8]) + strlen(part15) +
-			strlen(config.mqtt_topics[1]) +strlen(part16) + strlen(config.mqtt_prefix) + strlen(part17) + 1);
+			strlen(config.mqtt_topics[1]) + strlen(part8) + strlen(config.mqtt_topics[2]) + strlen(part9) +
+			strlen(config.mqtt_topics[3]) + strlen(part10) + strlen(config.mqtt_topics[4]) + strlen(part11) +
+			strlen(config.mqtt_topics[5]) + strlen(part12) + strlen(config.mqtt_topics[6]) + strlen(part13) +
+			strlen(config.mqtt_topics[7]) + strlen(part14) + strlen(config.mqtt_topics[8]) + strlen(part15) +
+			strlen(config.mqtt_topics[9]) +strlen(part16) + strlen(config.mqtt_prefix) + strlen(part17) + 1);
 	strcpy(resp_str, part1);
 	strcat(resp_str, config.ssid);
 	strcat(resp_str, part2);
@@ -64,22 +64,22 @@ static esp_err_t config_get_handler(httpd_req_t *req){
 	strcat(resp_str, config.mqtt_topics[0]);
 	strcat(resp_str, part7);
 	strcat(resp_str, config.mqtt_topics[1]);
-//	strcat(resp_str, part8);
-//	strcat(resp_str, config.mqtt_topics[2]);
-//	strcat(resp_str, part9);
-//	strcat(resp_str, config.mqtt_topics[3]);
-//	strcat(resp_str, part10);
-//	strcat(resp_str, config.mqtt_topics[4]);
-//	strcat(resp_str, part11);
-//	strcat(resp_str, config.mqtt_topics[5]);
-//	strcat(resp_str, part12);
-//	strcat(resp_str, config.mqtt_topics[6]);
-//	strcat(resp_str, part13);
-//	strcat(resp_str, config.mqtt_topics[7]);
-//	strcat(resp_str, part14);
-//	strcat(resp_str, config.mqtt_topics[8]);
-//	strcat(resp_str, part15);
-//	strcat(resp_str, config.mqtt_topics[9]);
+	strcat(resp_str, part8);
+	strcat(resp_str, config.mqtt_topics[2]);
+	strcat(resp_str, part9);
+	strcat(resp_str, config.mqtt_topics[3]);
+	strcat(resp_str, part10);
+	strcat(resp_str, config.mqtt_topics[4]);
+	strcat(resp_str, part11);
+	strcat(resp_str, config.mqtt_topics[5]);
+	strcat(resp_str, part12);
+	strcat(resp_str, config.mqtt_topics[6]);
+	strcat(resp_str, part13);
+	strcat(resp_str, config.mqtt_topics[7]);
+	strcat(resp_str, part14);
+	strcat(resp_str, config.mqtt_topics[8]);
+	strcat(resp_str, part15);
+	strcat(resp_str, config.mqtt_topics[9]);
 	strcat(resp_str, part16);
 	strcat(resp_str, config.mqtt_prefix);
 	strcat(resp_str, part17);
