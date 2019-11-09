@@ -91,12 +91,52 @@ static esp_ble_mesh_model_t onoff_models[OUTPUT_NUM][1] = {
 				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
 				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
 				.user_data = &outputs[1]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[2]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[3]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[4]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[5]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[6]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[7]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[8]}},
+		{{.model_id = ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, .op = onoff_op, .pub = &onoff_pub, 					\
+				.keys = { [0 ... (CONFIG_BLE_MESH_MODEL_KEY_COUNT - 1)] = ESP_BLE_MESH_KEY_UNUSED }, 			\
+				.groups = { [0 ... (CONFIG_BLE_MESH_MODEL_GROUP_COUNT - 1)] = ESP_BLE_MESH_ADDR_UNASSIGNED }, 	\
+				.user_data = &outputs[9]}},
 };
 
 static esp_ble_mesh_elem_t elements[] = {
     ESP_BLE_MESH_ELEMENT(0, root_models, ESP_BLE_MESH_MODEL_NONE),
 	ESP_BLE_MESH_ELEMENT(0, onoff_models[0], ESP_BLE_MESH_MODEL_NONE),
 	ESP_BLE_MESH_ELEMENT(0, onoff_models[1], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[2], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[3], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[4], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[5], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[6], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[7], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[8], ESP_BLE_MESH_MODEL_NONE),
+	ESP_BLE_MESH_ELEMENT(0, onoff_models[9], ESP_BLE_MESH_MODEL_NONE),
 };
 
 static esp_ble_mesh_comp_t comp = {
@@ -113,7 +153,7 @@ static esp_ble_mesh_prov_t prov = {
 
 static void IRAM_ATTR gpio_isr_handler(void* arg)
 {
-    uint32_t gpio_num = (uint32_t) arg;
+    //uint32_t gpio_num = (uint32_t) arg;
     uint8_t level = gpio_get_level(BUTTON_PIN);
     if (level){
     	k_delayed_work_cancel(&unprov_timer);
